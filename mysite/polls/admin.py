@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import Choice, Question
-
+from account.models import Account
 
 class ChoiceInline(admin.TabularInline):
     model = Choice
@@ -18,4 +18,13 @@ class QuestionAdmin(admin.ModelAdmin):
     list_filter = ['pub_date']
     search_fields = ['question_text']
 
+class AccountAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None,               {'fields': ['email']}),
+    ]
+    list_display = ('email', 'username')
+    list_filter = ['username']
+    search_fields = ['username']
+
 admin.site.register(Question, QuestionAdmin)
+admin.site.register(Account, AccountAdmin)

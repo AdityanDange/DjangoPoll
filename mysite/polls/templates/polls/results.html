@@ -6,4 +6,8 @@
 {% endfor %}
 </ul>
 
+<h2>{{error_message}}</h2>
+
 <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+<br>
+<a href="{% url 'polls:index' %}">Go back</a>
